@@ -1,0 +1,130 @@
+<div class="container-fluid">
+  <div *ngIf="list">
+    <h2>Listado de Clientes</h2>
+
+    <div class="row mb-3">
+      <div class="col-lg-6 col-md-8 col-xs-12">
+        <nz-input-group [nzSuffix]="suffixIconSearch">
+          <input nz-input type="text" [(ngModel)]="filterText" (keyup)="onChange()" placeholder="Filtar por Nombre o Email">
+        </nz-input-group>
+        <ng-template #suffixIconSearch>
+          <i nz-icon nzType="search"></i>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="table-responsive">
+        <nz-table #basicTable [nzData]="filterCustomer">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Detalle</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let data of basicTable.data; let i=index">
+            <td>{{ i+1 }}</td>
+            <td>{{ data.CustomerId }}</td>
+            <td>{{ data.Name }}</td>
+            <td>{{ data.EmailAddress }}</td>
+            <td>
+              <button class="btn btn-sm btn-primary rounded-circle" (click)="onDetail(data)">
+                <i nz-icon nzType="eye"></i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="detail">
+    <h2>Detalle de compras realizadas</h2>
+
+    <button class="btn btn-warning" (click)="close()">
+      <i nz-icon nzType="caret-left"></i>
+      Atrás
+    </button>
+
+    <form nz-form [nzLayout]="'vertical'" class="mb-3">
+      <div nz-row nzGutter="18" class="mt-4">
+        <div nz-col nzXs="24" nzSm="24" nzMd="6" nzLg="6">
+          <nz-form-item>
+            <nz-form-label>Nombre</nz-form-label>
+            <nz-form-control>
+              <strong>{{ info.Name }}</strong>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <div nz-col nzXs="24" nzSm="24" nzMd="6" nzLg="6">
+          <nz-form-item>
+            <nz-form-label>Email</nz-form-label>
+            <nz-form-control>
+              <strong>{{ info.EmailAddress }}</strong>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+
+      <div *ngIf="tableProducts.length > 0">
+        <div nz-row nzGutter="18">
+          <div nz-col nzXs="24" nzSm="24" nzMd="6" nzLg="6">
+            <nz-form-item>
+              <nz-form-label>Precio pagado</nz-form-label>
+              <nz-form-control>
+                <strong>${{ totalPagado | number:'1.2-5' }}</strong>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+
+          <div nz-col nzXs="24" nzSm="24" nzMd="6" nzLg="6">
+            <nz-form-item>
+              <nz-form-label>Peso total</nz-form-label>
+              <nz-form-control>
+                <strong>{{ totalPeso }}</strong>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="table-responsive">
+        <nz-table [nzData]="['']" [nzFrontPagination]="false" *ngIf="tableProducts.length > 0">
+          <thead>
+            <tr>
+              <th>ID Producto</th>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Peso</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of tableProducts">
+              <td>{{ row.ProductId }}</td>
+              <td>{{ row.Product.Name }}</td>
+              <td>${{ row.Product.Price | number:'1.2-5' }}</td>
+              <td>{{ row.Units }}</td>
+              <td>{{ row.Product.Weight | number:'1.2-5' }}</td>
+              <td>${{ row.Product.Price * row.Units | number:'1.2-5' }}</td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+
+      <div *ngIf="tableProducts.length == 0">
+        <div class="col-12"><h4>Aún no tiene compras realizadas</h4></div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <h2>Listado de Productos</h2>
+
+  <div class="row mb-3">
+    <div class="col-lg-6 col-md-8 col-xs-12">
+      <nz-input-group [nzSuffix]="suffixIconSearch">
+        <input nz-input type="text" [(ngModel)]="filterText" (keyup)="onChange()" placeholder="Filtar por Nombre">
+      </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="table-responsive">
+      <nz-table #basicTable [nzData]="filterProduct">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Peso</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of basicTable.data; let i=index">
+          <td>{{ i+1 }}</td>
+          <td>{{ data.ProductId }}</td>
+          <td>{{ data.Name }}</td>
+          <td>${{ data.Price | number:'1.2-5' }}</td>
+          <td>{{ data.Weight | number:'1.2-5' }}</td>
+        </tr>
+        </tbody>
+      </nz-table>
+    </div>
+  </div>
+</div>

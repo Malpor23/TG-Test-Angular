@@ -1,0 +1,132 @@
+[
+  {
+    "SaleID": 1,
+    "CustomerId": 1,
+    "Lines": [
+      {
+        "ProductId": 1,
+        "Units": 4,
+        "Product": {
+          "ProductId": 1,
+          "Name": "Manzana",
+          "Price": 10.5,
+          "Weight": 1
+        }
+      },
+      {
+        "ProductId": 2,
+        "Units": 3,
+        "Product": {
+          "ProductId": 2,
+          "Name": "Platano",
+          "Price": 27.8,
+          "Weight": 2
+        }
+      }
+    ]
+  },
+  {
+    "SaleID": 2,
+    "CustomerId": 1,
+    "Lines": [
+      {
+        "ProductId": 1,
+        "Units": 20,
+        "Product": {
+          "ProductId": 1,
+          "Name": "Manzana",
+          "Price": 10.5,
+          "Weight": 1
+        }
+      },
+      {
+        "ProductId": 3,
+        "Units": 50,
+        "Product": {
+          "ProductId": 3,
+          "Name": "Leche",
+          "Price": 50,
+          "Weight": 7
+        }
+      }
+    ]
+  },
+  {
+    "SaleID": 3,
+    "CustomerId": 2,
+    "Lines": [
+      {
+        "ProductId": 4,
+        "Units": 2,
+        "Product": {
+          "ProductId": 4,
+          "Name": "Pan",
+          "Price": 3,
+          "Weight": 3
+        }
+      },
+      {
+        "ProductId": 5,
+        "Units": 1,
+        "Product": {
+          "ProductId": 5,
+          "Name": "Galletas",
+          "Price": 24,
+          "Weight": 10
+        }
+      }
+    ]
+  },
+  {
+    "SaleID": 4,
+    "CustomerId": 2,
+    "Lines": [
+      {
+        "ProductId": 2,
+        "Units": 400,
+        "Product": {
+          "ProductId": 2,
+          "Name": "Platano",
+          "Price": 27.8,
+          "Weight": 2
+        }
+      },
+      {
+        "ProductId": 4,
+        "Units": 2,
+        "Product": {
+          "ProductId": 4,
+          "Name": "Pan",
+          "Price": 3,
+          "Weight": 3
+        }
+      }
+    ]
+  },
+  {
+    "SaleID": 5,
+    "CustomerId": 2,
+    "Lines": [
+      {
+        "ProductId": 1,
+        "Units": 75,
+        "Product": {
+          "ProductId": 1,
+          "Name": "Manzana",
+          "Price": 10.5,
+          "Weight": 1
+        }
+      },
+      {
+        "ProductId": 5,
+        "Units": 125,
+        "Product": {
+          "ProductId": 5,
+          "Name": "Galletas",
+          "Price": 24,
+          "Weight": 10
+        }
+      }
+    ]
+  }
+]
